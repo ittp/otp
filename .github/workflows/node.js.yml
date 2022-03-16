@@ -28,4 +28,10 @@ jobs:
       - name: Show
         run: ls -la 
       
-    
+      - name: NPM Target
+      # You may pin to the exact commit or the version.
+      # uses: anna-money/github-actions-npm@c39d5137ed17f1e97cc1fa24019708bd8c89fdb2
+        uses: anna-money/github-actions-npm@v2
+        with:
+          # package.json target to run
+          target: build # default is test
