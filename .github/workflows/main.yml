@@ -1,0 +1,28 @@
+name: Start
+
+# Controls when the workflow will run
+on: [workflow_dispatch]
+
+env: 
+  test: ${{ secrets.test }}
+  
+jobs:
+  install:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: echo
+        run: echo Init && ping google.com -c 5
+
+      - name: install
+        run: |
+          sudo apt install git curl net-tools tmate ipip iperf3 -y
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+      - run: npm -g install yarn@1 pm2
+      - run: export NV=$(node -v) && echo $NV
