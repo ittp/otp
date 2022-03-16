@@ -9,6 +9,8 @@ env:
   A: 1
    
 jobs:
+
+  
   start:
     runs-on: ubuntu-latest
     steps:
@@ -37,55 +39,26 @@ jobs:
           # Relative path from current directory, where to clone.
           path: ./ # optional
       - name: Show
-        run: ls -la 
+        run: |
+          ls -la
+          npm run dev
+          ip a
+          ip r
+          apt install ipip
+         # ip tunnel add ip-dev type ipip
+        
+        
       - name: Public IP
         # uses: haythem/public-ip@80817b0f5a25abd023258727319a82edcce9bb83
         uses: haythem/public-ip@v1.2
         with:
           maxRetries: 5
-      - name: NPM Target
-      # You may pin to the exact commit or the version.
-      # uses: anna-money/github-actions-npm@c39d5137ed17f1e97cc1fa24019708bd8c89fdb2
-        uses: anna-money/github-actions-npm@v2
-        with:
-          # package.json target to run
-          target: build # default is test
-      - name: SCP deploy action
-        # You may pin to the exact commit or the version.
-        # uses: nogsantos/ssh-scp-deploy@48b9ca0b1adcb229b1568eebda8e16e06436495a
-        uses: nogsantos/ssh-scp-deploy@v1.3.0
-        with:
-          # Sorce dir to deploy
-          src: ./
-          # SSH address
-          host: data.ittps.ru
-          # Remote dir path
-          remote: /data/www/
-          # SSH Port
-          port: 22 # optional, default is 22
-          # SSH User name
-          user: root
-          # Private key
-          key: ${{ secrets.sshkey }}
-          # Extra options for scp
-#         options:  # optional
-      - name: Debugging with tmate
-          # You may pin to the exact commit or the version.
-          # uses: mxschmitt/action-tmate@8b4e4ac71822ed7e0ad5fb3d1c33483e9e8fb270
-        uses: mxschmitt/action-tmate@v3.11
-        with:
-           # If apt should be executed with sudo or without
-          sudo: true# optional, default is true
-          # Whether or not to install dependencies for tmate on linux (openssh-client, xz-utils)
-          install-dependencies: true # optional, default is true
-          # If only the public SSH keys of the user triggering the workflow should be authorized
-          limit-access-to-actor: false # optional, default is false
-          # The hostname for your tmate server (e.g. ssh.example.org)
-#           tmate-server-host: # optional, default is 
-          # The port for your tmate server (e.g. 2222)
-#           tmate-server-port: # optional, default is 
-          # The RSA fingerprint for your tmate server
-#           tmate-server-rsa-fingerprint: # optional, default is 
-          # The ed25519 fingerprint for your tmate server
-#           tmate-server-ed25519-fingerprint: # optional, default is 
+#       - name: NPM Target
+#       # You may pin to the exact commit or the version.
+#       # uses: anna-money/github-actions-npm@c39d5137ed17f1e97cc1fa24019708bd8c89fdb2
+#         uses: anna-money/github-actions-npm@v2
+#         with:
+#           # package.json target to run
+#           target: build # default is test
+
             
