@@ -12,14 +12,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-
-      - name: echo
-        run: echo Init && ping google.com -c 5
-
+     # - uses: actions/checkout@v2
       - name: install
         run: |
           sudo apt install git curl net-tools tmate ipip iperf3 -y
+          ifconfig=$(curl ifconfig.co/json)
+          echo $ifconfig
+          
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
