@@ -20,8 +20,11 @@ jobs:
    - name: Git Clone Action # You may pin to the exact commit or the version. # 
      uses: sudosubin/git-clone-action@v1.0.1
        with: # Repository owner and name. Ex: sudosubin/action
-         repository: ${{ github.repository }} # optional, default is ${{ github.repository }} # Git host platform. Ex: github, gitlab, bitbucket, gitee, or else (git.suckless.org, ...) 
-         platform: github # optional, default is github # Git branch or tag to checkout. ref: main # optional # Relative path from current directory, where to clone. path: ./ # optional
+         repository: ${{ github.repository }} # optional, default is ${{ github.repository }} 
+ # Git host platform. Ex: github, gitlab, bitbucket, gitee, or else (git.suckless.org, ...) 
+         platform: github # optional, default is github # Git branch or tag to checkout. 
+         ref: main # optional # Relative path from current directory, where to clone. 
+         path: ./ # optional
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
