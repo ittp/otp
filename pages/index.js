@@ -2,6 +2,43 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
+let defaultFields = [
+  { key: "username", type: "text", defaultValue: "root", label: "Username" }
+]
+
+const createInput = (config) => {}
+
+const createOption = (config) => {
+  let key = ""
+  let value = ""
+  let select = { select: { name: "", options: [{ name: 1, value: 1, action: "#" }] } }
+}
+
+const createSelect = (key, type, options) => {
+
+}
+
+let AuthForm = (fields) => {
+
+  
+  let form = {
+    action: "",
+    fields: fields
+    
+  }
+  
+  Object.values(form.
+  
+  return(
+    <div id="form">
+    <form>
+         
+     </form>
+  </div>
+  )
+
+}
+
 
 export default function Home() {
   return (
